@@ -9,7 +9,7 @@ contract StoreOwner is MarketAdmin {
   mapping(address => uint[]) public storeOwnertoStoreIds;
   mapping(uint => address) public storeIdtoStoreOwner;
   mapping(uint => Product[]) public storetoProducts;
-  mapping(address => mapping(uint => StoreFront)) public storeOwnertoStoreFront;
+  mapping(uint => StoreFront) public storeOwnertoStoreFront;
   mapping (address => uint) pendingWithdrawals;
   mapping(address => mapping(uint => uint[])) public buyertoStoretoProducts;
   
@@ -74,7 +74,7 @@ contract StoreOwner is MarketAdmin {
   
   modifier verifyStoreOwner (uint _storeId) { require(storeIdtoStoreOwner[_storeId] == msg.sender); _;}
   
-  function createStoreFront(string _storename) onlyStoreOwner checkMarketStatus public returns (uint _storeId) 
+  function createStoreFront(string _storename) onlyStoreOwner() checkMarketStatus public returns (uint _storeId) 
   {
         _storeId = addStoreFront(_storename);
         emit storeFrontCreated(_storeId, _storename);
@@ -87,7 +87,7 @@ contract StoreOwner is MarketAdmin {
             return;
         }
         _storeId =  storeFrontCount;
-        storeOwnertoStoreFront[msg.sender][_storeId] = StoreFront({storeName: _storename, storeOwner: msg.sender, approvedBy: 0, skuCount: 0, active: false});
+        storeOwnertoStoreFront[_storeId] = StoreFront({storeName: _storename, storeOwner: msg.sender, approvedBy: 0, skuCount: 0, active: false});
         storeIdtoStoreOwner[_storeId] = msg.sender;
         storeOwnertoStoreIds[msg.sender].push(_storeId);
         storeFrontCount += 1;
@@ -96,21 +96,21 @@ contract StoreOwner is MarketAdmin {
   function approveStoreFront(uint _storeId) checkMarketStatus public
   {
       require(super.isAdmin(msg.sender));
-      storeOwnertoStoreFront[storeIdtoStoreOwner[_storeId]][_storeId].approvedBy = msg.sender;
-      storeOwnertoStoreFront[storeIdtoStoreOwner[_storeId]][_storeId].active = true;
+      storeOwnertoStoreFront[_storeId].approvedBy = msg.sender;
+      storeOwnertoStoreFront[_storeId].active = true;
       emit storeFrontApproved(_storeId, msg.sender);
   }
   
   function addProduct(uint _storeId,string _name, uint _price,uint _quantity) verifyStoreOwner(_storeId) checkMarketStatus public 
   {
-    require(storeOwnertoStoreFront[msg.sender][_storeId].active == true);
+    require(storeOwnertoStoreFront[_storeId].active == true);
     //get next available sku
-    uint _sku = storeOwnertoStoreFront[msg.sender][_storeId].skuCount;
+    uint _sku = storeOwnertoStoreFront[_storeId].skuCount;
 
     //add the new prooduct
     //storetoProducts[_storeId][_sku] = Product({name: _name, sku: _sku, price: _price, quantity: _quantity,isRemoved: false});
     storetoProducts[_storeId].push(Product( _name,  _sku,  _price,  _quantity, false));
-    storeOwnertoStoreFront[msg.sender][_storeId].skuCount += 1;
+    storeOwnertoStoreFront[_storeId].skuCount += 1;
     emit productAdded(_storeId, _sku);
   }
   
@@ -131,13 +131,17 @@ contract StoreOwner is MarketAdmin {
   }
 
   function getStoreFrontbyId(uint _storeId) view public returns (string, address,address, bool, uint) {
-      return (storeOwnertoStoreFront[msg.sender][_storeId].storeName, 
-      storeOwnertoStoreFront[msg.sender][_storeId].storeOwner, 
-      storeOwnertoStoreFront[msg.sender][_storeId].approvedBy, 
-      storeOwnertoStoreFront[msg.sender][_storeId].active,
-      storeOwnertoStoreFront[msg.sender][_storeId].skuCount);
+      return (storeOwnertoStoreFront[_storeId].storeName, 
+      storeOwnertoStoreFront[_storeId].storeOwner, 
+      storeOwnertoStoreFront[_storeId].approvedBy, 
+      storeOwnertoStoreFront[_storeId].active,
+      storeOwnertoStoreFront[_storeId].skuCount);
   }
-
+  
+  function getStoreFrontIds() view public returns (uint[]) {
+      return (storeOwnertoStoreIds[msg.sender]);
+  }
+  
   function getStoreFrontCount() view public returns (uint) {
       return storeFrontCount;
   }
@@ -152,7 +156,7 @@ contract StoreOwner is MarketAdmin {
 
   function getProductCountbyStoreId(uint _storeId ) view public returns (uint)
   {
-    return(storeOwnertoStoreFront[storeIdtoStoreOwner[_storeId]][_storeId].skuCount);
+    return(storeOwnertoStoreFront[_storeId].skuCount);
   }
   
   function purchaseProduct(uint _storeId,uint _sku) public checkMarketStatus payable

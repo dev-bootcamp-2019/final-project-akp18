@@ -5,13 +5,14 @@ const StoreOwner = artifacts.require("./StoreOwner.sol");
 
 module.exports = async function(deployer) {
 
-deployer.deploy(safeMath);
-deployer.deploy(helperLibrary);
-deployer.deploy(MarketAdmin);
-deployer.deploy(StoreOwner);
-deployer.link(safeMath, MarketAdmin);
-deployer.link(safeMath, StoreOwner);
-deployer.link(helperLibrary, StoreOwner);
+	deployer.deploy(safeMath);
+	deployer.deploy(helperLibrary);
+	deployer.link(safeMath, MarketAdmin);
+	deployer.link(safeMath, StoreOwner);
+	deployer.link(helperLibrary, StoreOwner);
+	deployer.deploy(MarketAdmin);
+	deployer.deploy(StoreOwner);
+
 
 };
 
