@@ -47,10 +47,6 @@ class App extends React.Component {
     // Get the value from the contract to prove it worked.
     const _UserType = await contract.getUserType.call({ from: accounts[0] });
 
-      alert(
-        `UserType is ` + _UserType
-      );
-
     // Update state with the result.
     this.setState({ UserType: _UserType });
 
