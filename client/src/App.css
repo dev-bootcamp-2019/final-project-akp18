@@ -31,6 +31,47 @@
   }
 }
 
+label {    
+    margin: 10px;
+    position: relative;
+    padding: 0.5;
+}
 
-.ManageStores { display: block; padding: 1;}
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 5px;
+
+}
+
+h3 {    
+    font-weight: 200;
+    color: navy;
+    font-size: 25px;
+    text-align: center;
+    position: relative;
+}
+
+h4 {    
+    font-weight: 200;
+    color: Maroon;
+    font-size: 18px;
+    position: relative;
+}
+
+th
+{    
+    font-size: 15px;
+    position: relative;
+}
+
+.ManageStores { display: block; padding: 10;border: 1px solid gray; margin: 10px; bgcolor: #F0F0F0}
+
+.ManageStoresChild { display: block; padding: 10; margin: 30px; }
 

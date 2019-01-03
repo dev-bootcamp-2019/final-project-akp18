@@ -5,7 +5,7 @@ import truffleContract from "truffle-contract";
 class StoreOwner extends React.Component {
 constructor(props) {
     super(props);
-    this.state = { storefrontvalue: '',selectstorevalue: '', StoreBalance: '', ProductList: [],ProdName:'',ProdPrice: '',ProdQty: '',ProdSku: '',ProdNameEdit:'',ProdPriceEdit: '',ProdQtyEdit: '',ProdSkuEdit: '',PendingStores: [], ApprovedStores: [],SelectList: [], web3: this.props.web3, accounts: this.props.accounts, contract: this.props.contract };
+    this.state = { welcomevalue: '',storefrontvalue: '',selectstorevalue: '',selectskuvalue: '',selectskuvaluedelete : '', StoreBalance: '', ProductList: [],ProdName:'',ProdPrice: '',ProdQty: '',ProdSku: '',ProdNameEdit:'',ProdPriceEdit: '',ProdQtyEdit: '',ProdSkuEdit: '',PendingStores: [], ApprovedStores: [],SelectList: [], web3: this.props.web3, accounts: this.props.accounts, contract: this.props.contract };
     }
 
 
@@ -64,15 +64,49 @@ constructor(props) {
     }
    
     // Update state with the result.
-    this.setState({ storefrontvalue: '',StoreBalance: _StoreBalance, PendingStores: _PendingStores, ApprovedStores: _ApprovedStores, SelectList: _SelectList});
+    this.setState({ storefrontvalue: '',StoreBalance: _StoreBalance, PendingStores: _PendingStores, ApprovedStores: _ApprovedStores, SelectList: _SelectList, ProductList: []});
     this.RefreshProductList();
   };
+
 
 
   handleChange(event) {
 
      this.setState({ [event.target.name]: event.target.value });
   }
+
+  handleChangeMngStore(event) {
+
+     this.setState({ [event.target.name]: event.target.value });
+     this.setState({ welcomevalue: ''});
+  }
+
+ async handleChangeskudelete(event) {
+ this.setState({ selectskuvaluedelete: event.target.value });
+}
+
+  async handleChangesku(event) {
+
+     this.setState({ [event.target.name]: event.target.value });
+     const { accounts, contract } = this.state;	
+     var storevalue = this.state.selectstorevalue;
+     var storevalue = this.state.selectstorevalue;
+     for (let listitem of this.state.SelectList)
+	{
+		if(listitem.Name == storevalue)
+		{
+
+		       // Get the value from the contract to prove it worked.
+			const _Product = await contract.getProductbysku.call( listitem.Id, event.target.value, { from: accounts[0] });
+						
+			this.setState({ProdNameEdit:_Product[0] ,ProdPriceEdit: _Product[1],ProdQtyEdit: _Product[2] });
+			this.forceUpdate(); 	    
+     			this.setState({ selectskuvalue: event.target.value });
+		}
+	}  
+  }  
+
+ 
 
   handleSubmit(event) {
 
@@ -112,40 +146,48 @@ constructor(props) {
   }
 
   async handleSubmitMngStore(event) {
-
   event.preventDefault();
   this.RefreshProductList();
-  
+  this.setState({ ProdNameEdit: '',ProdPriceEdit: '',ProdQtyEdit: ''});  
   }
 
 async RefreshProductList() { 
 const { accounts, contract } = this.state;	
-  var value = this.state.selectstorevalue;
-  const _ProductList = []
+var value = this.state.selectstorevalue;
+const _ProductList = []
+let counter = 0;
   
       // iterate through our children searching for the <CustomOption /> that was just selected
-	 for (let listitem of this.state.SelectList)
+	for (let listitem of this.state.SelectList)
 	{
 		if(listitem.Name == value)
 		{
-
 		    // Get all product ids from the contract.
 		    const _ProductIds = await contract.getProductCountbyStoreId.call(listitem.Id, { from: accounts[0] })
-			alert(
-				`Total products for this store is ` + _ProductIds
-			  	);
 		    for (let i = 0; i < _ProductIds; i++) {
 			
 		      // Get the value from the contract to prove it worked.
 		      const _Product = await contract.getProductbysku.call( listitem.Id, i, { from: accounts[0] });
-				
-		      _ProductList.push({Name:_Product[0] ,Price: _Product[1],Quantity: _Product[2],Sku:  i});
+
+		       if(!_Product[3])	
+			{
+				if(counter== 0)
+				{
+					this.setState({ProdNameEdit:_Product[0] ,ProdPriceEdit: _Product[1],ProdQtyEdit: _Product[2], ProdskuEdit : i });
+				}	
+		      		_ProductList.push({Name:_Product[0] ,Price: _Product[1],Quantity: _Product[2],Sku:  i});
+			        counter++;
+			}
+
 		    }
                       this.setState({ ProductList: _ProductList});
 
 		}
+
 	}   
-  return true;
+ this.setState({ ProdName: '',ProdPrice: '',ProdQty: '',welcomevalue: value});
+ this.forceUpdate();
+ return true;
 }
 
  async handleAddNewProduct(event) {
@@ -181,6 +223,35 @@ const { accounts, contract } = this.state;
   const _ProductList = []
   this.setState({ ProductList: []});
 
+     alert(
+        `Updating the product ` + this.state.selectskuvalue
+      	);
+      // iterate through our children searching for the <CustomOption /> that was just selected
+	for (let listitem of this.state.SelectList)
+	{
+		if(listitem.Name == value)
+		{
+		    // Get all product ids from the contract.
+		    await contract.updateProduct(listitem.Id,this.state.selectskuvalue, this.state.ProdNameEdit,this.state.ProdPriceEdit,this.state.ProdQtyEdit, { from: accounts[0] });
+ 
+		}
+	} 
+        this.RefreshProductList();
+	this.forceUpdate();
+
+  }
+
+
+async handleRemoveProduct(event) {
+
+  event.preventDefault();
+  const { accounts, contract } = this.state;	
+  var value = this.state.selectstorevalue;
+  const _ProductList = []
+  this.setState({ ProductList: []});
+     alert(
+        `Removing the product ` + this.state.selectskuvaluedelete
+      	);
 
       // iterate through our children searching for the <CustomOption /> that was just selected
 	for (let listitem of this.state.SelectList)
@@ -188,7 +259,7 @@ const { accounts, contract } = this.state;
 		if(listitem.Name == value)
 		{
 		    // Get all product ids from the contract.
-		    await contract.updateProduct(listitem.Id,this.state.ProdSku, this.state.ProdName,this.state.ProdPrice,this.state.ProdQty, { from: accounts[0] });
+		    await contract.removeProduct(listitem.Id,this.state.selectskuvaluedelete, { from: accounts[0] });
  
 		}
 	} 
@@ -206,6 +277,9 @@ const { accounts, contract } = this.state;
     let optionItems = this.state.SelectList.map((stores) =>
                 <option key={stores.Id}>{stores.Name}</option>
             );
+   let optionItemsProd = this.state.ProductList.map((products) =>
+                <option key={products.Sku}>{products.Sku}</option>
+            );
 
     return ( 	
       <form onSubmit={this.handleSubmit.bind(this)}>
@@ -214,17 +288,22 @@ const { accounts, contract } = this.state;
 
 
     	<div>
-        <div id="result">Store Balance: {String(this.state.StoreBalance)} </div>
-        <button onClick={this.handleSubmitWithBalance.bind(this)}>Withdraw</button>
+        <div id="result">
+        <label>
+          Store Balance: 
+        </label>
+        {String(this.state.StoreBalance)}         
+        <button onClick={this.handleSubmitWithBalance.bind(this)}>Withdraw</button> </div>
 	</div>  
 	<br/>	
 
 
        <p>
         <label>
-          Add a new Store Front:
-          <input type="text" ref="storefrontinput" name="storefrontvalue" value={this.state.storefrontvalue} onChange={this.handleChange} placeholder="Enter Store Name i.e. Walmart..."/>
+          Add a new Store Front
         </label>
+          <input type="text" ref="storefrontinput" name="storefrontvalue" value={this.state.storefrontvalue} onChange={this.handleChange} placeholder="Enter Store Name i.e. Walmart..."/>
+
         <button type="submit">Add</button>
 	</p>
 	<ul> 	
@@ -238,19 +317,47 @@ const { accounts, contract } = this.state;
 
  	<div>
         <label>
-          Manage Approved Stores:
+          Manage Approved Stores
         </label>  
-           <select onChange={this.handleChange} ref="selectstorevalue" name="selectstorevalue" value={this.state.selectstorevalue} > 
+           <select onChange={this.handleChangeMngStore.bind(this)} ref="selectstorevalue" name="selectstorevalue" value={this.state.selectstorevalue} > 
                {optionItems}
            </select>
           <button onClick={this.handleSubmitMngStore.bind(this)}>Manage</button>
          </div> 
 
  	<div className="ManageStores" >
-        <h4 style={{color: "Navy"}}> Welcome to {this.state.selectstorevalue}</h4> 
-        <label>
-          Add new Product:
-        </label>  
+        <h3> Welcome to {this.state.welcomevalue}</h3> 
+ 	<div className="ManageStoresChild" >      
+
+	<h4>
+          Available Products
+        </h4>  
+       <table className="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price </th>
+                <th>Qty</th>
+                <th>SKU</th>
+            </tr>
+        </thead> 
+        <tbody>
+            {this.state.ProductList.map((row, index) => {
+                return (
+                    <tr key={index}>
+                        <td><input type='text' ref="ProdNameEdit" name="ProdNameEdit" className='form-control' defaultValue="Hello!" value={row.Name}  /></td>
+			<td><input type='currency' ref="ProdPriceEdit" name="ProdPriceEdit" className='form-control' step='1' min="1" value={row.Price} /></td>
+                        <td><input type='number' ref="ProdQtyEdit" name="ProdQtyEdit" className='form-control' step='1' min="1" value={row.Quantity} /></td>   
+                        <td><input readonly="readonly"  ref="ProdSkuEdit" name="ProdSkuEdit" type="number"  value={row.Sku}/></td>                     
+                    </tr>
+                );
+            })}
+        </tbody>
+     </table><br/>
+
+	<h4>
+          Add new Product
+        </h4>  
 	<table className="table table-bordered">
         <thead>
             <tr>
@@ -272,35 +379,49 @@ const { accounts, contract } = this.state;
  	<br/>
 
 
-	 <label>
-          Update Product:
-        </label>
-       <table className="table table-bordered">
+	<h4>
+          Update existing Product
+        </h4>
+	<label>
+          Select Product SKU
+        </label>  
+	<select onChange={this.handleChangesku.bind(this)} ref="selectskuvalue" name="selectskuvalue" > 
+               {optionItemsProd}
+           </select>
+	<table className="table table-bordered">
         <thead>
             <tr>
                 <th>Product Name</th>
                 <th>Price </th>
                 <th>Qty</th>
-                <th>SKU</th>
             </tr>
         </thead>
         <tbody>
-            {this.state.ProductList.map((row, index) => {
-                return (
-                    <tr key={index}>
-                        <td><input type='text' ref="ProdNameEdit" name="ProdNameEdit" className='form-control' step='1' min="1" value={row.Name} onChange={this.handleChange} /></td>
-			<td><input type='currency' ref="ProdPriceEdit" name="ProdPriceEdit"  value={this.state.ProdPriceEdit} className='form-control' step='1' min="1" value={row.Price} onChange={this.handleChange} /></td>
-                        <td><input type='number' ref="ProdQtyEdit" name="ProdQtyEdit" value={this.state.ProdQtyEdit} className='form-control' step='1' min="1" value={row.Quantity} onChange={this.handleChange} /></td>   
-                        <td><input readonly="readonly"  ref="ProdSkuEdit" name="ProdSkuEdit" value={this.state.ProdSkuEdit} type="number"  value={row.Sku}/></td> 
-			<td><button onClick={this.handleUpdateProduct.bind(this)}>Update Product</button></td>  
-			<td><button onClick={this.handleSubmitMngStore.bind(this)}>Delete Product</button></td>                       
-                    </tr>
-                );
-            })}
+                <tr>
+                        <td><input type="text" ref="ProdNameEdit" name="ProdNameEdit" value={this.state.ProdNameEdit} onChange={this.handleChange}/></td>
+			<td><input ref="ProdPriceEdit" name="ProdPriceEdit"  value={this.state.ProdPriceEdit}  type="currency"  onChange={this.handleChange} /></td>
+                        <td><input ref="ProdQtyEdit" name="ProdQtyEdit" value={this.state.ProdQtyEdit} type="number" onChange={this.handleChange} /></td>                       	
+			<td><button onClick={this.handleUpdateProduct.bind(this)}>Update Product</button></td>		                   
+                 </tr>
+
         </tbody>
      </table>
-     </div>
+ 	<br/>
 
+
+	<h4>
+          Remove existing Product
+        </h4> 
+	<label>
+          Select Product SKU 
+        </label> 
+	<select onChange={this.handleChangeskudelete.bind(this)} ref="selectskuvaluedelete" name="selectskuvaluedelete" value={this.state.selectskuvaluedelete} > 
+               {optionItemsProd}
+           </select>
+       <button onClick={this.handleRemoveProduct.bind(this)}>Remove Product</button>
+	<br/>
+     </div>
+     </div>
      </form>	
     );
   }

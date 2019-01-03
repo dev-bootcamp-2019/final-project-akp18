@@ -103,6 +103,9 @@ contract StoreOwner is MarketAdmin {
   
   function addProduct(uint _storeId,string _name, uint _price,uint _quantity) verifyStoreOwner(_storeId) checkMarketStatus public 
   {
+     if(HelperLibrary.IsEmptyString(_name)) {
+            return;
+        }
     require(storeOwnertoStoreFront[_storeId].active == true);
     //get next available sku
     uint _sku = storeOwnertoStoreFront[_storeId].skuCount;
@@ -116,6 +119,9 @@ contract StoreOwner is MarketAdmin {
   
   function updateProduct(uint _storeId,uint _sku,string _name, uint _price,uint _quantity) verifyStoreOwner(_storeId) checkMarketStatus public returns(bool)
   {
+     if(HelperLibrary.IsEmptyString(_name)) {
+            return;
+        }
     storetoProducts[_storeId][_sku].name = _name;
     storetoProducts[_storeId][_sku].price = _price;
     storetoProducts[_storeId][_sku].quantity = _quantity;
