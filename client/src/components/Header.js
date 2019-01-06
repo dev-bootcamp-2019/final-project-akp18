@@ -7,6 +7,7 @@ class Header extends Component {
 	<div>
 	<h1>Welcome to online MarketPlace!</h1>
 	<h2>Your account number is: {this.props.accounts}</h2>
+        <h2>Your balance is: {this.props.balance}</h2>
 	<br/>
 	</div>
 	);

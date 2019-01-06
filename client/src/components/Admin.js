@@ -72,7 +72,13 @@ constructor(props) {
   event.preventDefault();
   const { accounts, contract } = this.state;	
   var value = this.state.adminvalue;
-  
+    if(!value)
+  {
+   alert(
+        `Address can't be empty ` + value
+      	);
+   }
+   else{
     alert(
         `Adding a new admin ` + value
       	);
@@ -83,6 +89,7 @@ constructor(props) {
         	this.forceUpdate(); 
         });
 	this.setState({ adminvalue: '',storeownervalue: ''});
+}
   }
 
   handleSubmitStrOwner(event) {
@@ -90,7 +97,13 @@ constructor(props) {
   event.preventDefault();
   const { accounts, contract } = this.state;	
   var value = this.state.storeownervalue;
-  
+      if(!value)
+  {
+   alert(
+        `Address can't be empty ` + value
+      	);
+   }
+   else{
     alert(
         `Adding a new Store Owner ` + value
       	);
@@ -101,7 +114,7 @@ constructor(props) {
         	this.forceUpdate(); 
         });
 	this.setState({ adminvalue: '',storeownervalue: ''});
-
+}
   }
 
   handleApprStore(event) {
@@ -109,7 +122,13 @@ constructor(props) {
   event.preventDefault();
   const { accounts, contract } = this.state;	
   var value = this.state.storeapprvalue;
-  
+      if(!value)
+  {
+   alert(
+        `Store number can't be empty ` + value
+      	);
+   }
+   else{
     
         contract.approveStoreFront(value, {from : accounts[0]})
         .then(result => {         
@@ -117,7 +136,7 @@ constructor(props) {
         	this.forceUpdate(); 
         });
 	this.setState({ storeapprvalue: ''});
-
+}
   }
 
 
@@ -131,7 +150,7 @@ constructor(props) {
     return ( 	
       <form onSubmit={this.handleSubmit.bind(this)}>
 
-       <h3>You are logged in as OWNER</h3>
+       <h3>You are logged in as ADMIN</h3>
        <p>
         <label>
           Add a new Admin:

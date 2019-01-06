@@ -10,7 +10,7 @@ contract Ownable {
 
   /** Create a modifer that checks if the msg.sender is the owner of the contract */
     modifier onlyOwner {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "You are not the owner");
         _;
     }
 
@@ -41,6 +41,10 @@ contract Stoppable is Ownable
     /** MODIFIER to check if marketplace is active  */
     modifier checkMarketStatus() {
         if(!stopMarket) _;
+    }
+
+     function getMarketState() public returns(bool){
+        return stopMarket;
     }
 
 }

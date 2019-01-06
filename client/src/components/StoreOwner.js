@@ -6,6 +6,7 @@ class StoreOwner extends React.Component {
 constructor(props) {
     super(props);
     this.state = { welcomevalue: '',storefrontvalue: '',selectstorevalue: '',selectskuvalue: '',selectskuvaluedelete : '', StoreBalance: '', ProductList: [],ProdName:'',ProdPrice: '',ProdQty: '',ProdSku: '',ProdNameEdit:'',ProdPriceEdit: '',ProdQtyEdit: '',ProdSkuEdit: '',PendingStores: [], ApprovedStores: [],SelectList: [], web3: this.props.web3, accounts: this.props.accounts, contract: this.props.contract };
+
     }
 
 
@@ -106,14 +107,20 @@ constructor(props) {
 	}  
   }  
 
- 
 
   handleSubmit(event) {
 
   event.preventDefault();
   const { accounts, contract } = this.state;	
   var value = this.state.storefrontvalue;
-  
+  if(!value)
+  {
+   alert(
+        `Store name can't be empty ` + value
+      	);
+   }
+  else
+  {
     alert(
         `Adding a new Store Front ` + value
       	);
@@ -124,6 +131,7 @@ constructor(props) {
         	this.forceUpdate(); 
         });
 	this.setState({ storefrontvalue: '',storeownervalue: ''});
+   }
   }
 
   handleSubmitWithBalance(event) {
@@ -173,7 +181,7 @@ let counter = 0;
 			{
 				if(counter== 0)
 				{
-					this.setState({ProdNameEdit:_Product[0] ,ProdPriceEdit: _Product[1],ProdQtyEdit: _Product[2], ProdskuEdit : i });
+					this.setState({ProdNameEdit:_Product[0] ,ProdPriceEdit: _Product[1],ProdQtyEdit: _Product[2], selectskuvalue : i });
 				}	
 		      		_ProductList.push({Name:_Product[0] ,Price: _Product[1],Quantity: _Product[2],Sku:  i});
 			        counter++;
@@ -197,6 +205,15 @@ let counter = 0;
   var value = this.state.selectstorevalue;
   const _ProductList = []
   this.setState({ ProductList: []});
+  if(!this.state.ProdName || !this.state.ProdPrice || !this.state.ProdQty)
+  {
+   alert(
+        `Product information can't be empty ` 
+      	);
+      return;
+   }
+   
+
      alert(
         `Adding a new product for ` + value
       	);
@@ -222,9 +239,15 @@ let counter = 0;
   var value = this.state.selectstorevalue;
   const _ProductList = []
   this.setState({ ProductList: []});
-
+  if(!this.state.ProdNameEdit || !this.state.ProdPriceEdit || !this.state.ProdQtyEdit)
+  {
+   alert(
+        `Product information can't be empty ` 
+      	);
+      return;
+   }
      alert(
-        `Updating the product ` + this.state.selectskuvalue
+        `Updating the product ` + this.state.ProdQtyEdit
       	);
       // iterate through our children searching for the <CustomOption /> that was just selected
 	for (let listitem of this.state.SelectList)
@@ -249,6 +272,7 @@ async handleRemoveProduct(event) {
   var value = this.state.selectstorevalue;
   const _ProductList = []
   this.setState({ ProductList: []});
+
      alert(
         `Removing the product ` + this.state.selectskuvaluedelete
       	);
@@ -322,7 +346,7 @@ async handleRemoveProduct(event) {
            <select onChange={this.handleChangeMngStore.bind(this)} ref="selectstorevalue" name="selectstorevalue" value={this.state.selectstorevalue} > 
                {optionItems}
            </select>
-          <button onClick={this.handleSubmitMngStore.bind(this)}>Manage</button>
+          <button onClick={this.handleSubmitMngStore.bind(this)}>Load Products</button>
          </div> 
 
  	<div className="ManageStores" >
@@ -356,7 +380,7 @@ async handleRemoveProduct(event) {
      </table><br/>
 
 	<h4>
-          Add new Product
+          Add Product
         </h4>  
 	<table className="table table-bordered">
         <thead>
@@ -380,7 +404,7 @@ async handleRemoveProduct(event) {
 
 
 	<h4>
-          Update existing Product
+          Update Product
         </h4>
 	<label>
           Select Product SKU
@@ -410,7 +434,7 @@ async handleRemoveProduct(event) {
 
 
 	<h4>
-          Remove existing Product
+          Remove Product
         </h4> 
 	<label>
           Select Product SKU 
