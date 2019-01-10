@@ -214,9 +214,9 @@ let counter = 0;
    }
    
 
-     alert(
-        `Adding a new product for ` + value
-      	);
+     //alert(
+        //`Adding a new product for ` + value
+      	//);
 
       // iterate through our children searching for the <CustomOption /> that was just selected
 	for (let listitem of this.state.SelectList)
@@ -246,9 +246,9 @@ let counter = 0;
       	);
       return;
    }
-     alert(
-        `Updating the product ` + this.state.ProdQtyEdit
-      	);
+     //alert(
+        //`Updating the product ` + this.state.ProdNameEdit
+      	//);
       // iterate through our children searching for the <CustomOption /> that was just selected
 	for (let listitem of this.state.SelectList)
 	{
@@ -273,9 +273,9 @@ async handleRemoveProduct(event) {
   const _ProductList = []
   this.setState({ ProductList: []});
 
-     alert(
-        `Removing the product ` + this.state.selectskuvaluedelete
-      	);
+     //alert(
+       // `Removing the product ` + this.state.selectskuvaluedelete
+      	//);
 
       // iterate through our children searching for the <CustomOption /> that was just selected
 	for (let listitem of this.state.SelectList)

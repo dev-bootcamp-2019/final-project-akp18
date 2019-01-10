@@ -53,15 +53,30 @@ button {
 h3 {    
     font-weight: 200;
     color: navy;
-    font-size: 25px;
+    font-size: 22px;
     text-align: center;
-    position: relative;
+
 }
 
 h4 {    
     font-weight: 200;
     color: Maroon;
     font-size: 18px;
+    position: relative;
+}
+
+h5 {    
+    font-weight: 500;
+    color: navy;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+}
+
+h6 {    
+    font-weight: 500;
+    color: Red;
+    font-size: 20px;
     position: relative;
 }
 
