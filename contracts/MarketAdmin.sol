@@ -117,7 +117,7 @@ contract MarketAdmin is Stoppable {
     }
   
     /** @dev Market admin and market owner can add new store owners 
-      * @param newOwner Address of the new owner.
+      * @param _storeowner Address of the new owner.
       */
     function addStoreOwner(address _storeowner) onlyAdmin() checkMarketStatus public {
     require(approvedStoreOwners[_storeowner] == false);
