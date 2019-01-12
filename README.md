@@ -9,7 +9,15 @@ The central marketplace is managed by a group of administrators.
 Admins allow store owners to add stores to the marketplace. 
 Store owners can manage their store’s inventory and funds. 
 Shoppers can visit stores and purchase goods that are in stock using cryptocurrency. 
- 
+
+#### Owner Features 
+<ul>
+<li>A market owner opens the web app.</li>  
+<li>The web app reads the address and identifies that the user is an owner, showing them owner only functions.</li>  
+<li>Market owner can add new admins.</li>
+<li>Market owner can stop the market place in case of emergency.</li>
+</ul>
+
 #### Admin Features 
 <ul>
 <li>An administrator opens the web app.</li>  
