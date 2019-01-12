@@ -59,7 +59,7 @@ Shoppers can visit stores and purchase goods that are in stock using cryptocurre
 ![image](https://user-images.githubusercontent.com/43038291/51078647-5d637400-167e-11e9-84c9-99f69acb79b3.png)
 10.	 Add new Products
 11.	 Update an existing Product
-12.	 Remove an Product
+12.	 Remove an existing Product
 13.	 Login as Shopper
 ![image](https://user-images.githubusercontent.com/43038291/51078656-85eb6e00-167e-11e9-8064-24c5ed59c52e.png)
 14.	 Browse all Store Fronts
