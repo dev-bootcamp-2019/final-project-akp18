@@ -39,24 +39,41 @@ Shoppers can visit stores and purchase goods that are in stock using cryptocurre
   
  ### Deployment
  
+
  ### Process Flow
- 	 1. Login as Market Owner
-	 2. Add a new Admin
-	 3. Login as Admin
-	 4. Add a new Store Owners
-	 5. Login as Store Owner
-	 6. Add a new Store Front
-	 7. Login as Admin
-	 8. Approve pending Store Fronts
-	 9. Login as Store Owner 
-	 10. Add new Products
-	 11. Update an existing Product
-	 12. Remove an Product
-	 13. Login as Shopper
-	 14. Browse all Store Fronts
-	 15. Buy a Product
-	 16. Login as Store Owner 
-	 17. Withdraw collected amount
+
+1.  Login as Market Owner
+![image](https://user-images.githubusercontent.com/43038291/51078582-dd88da00-167c-11e9-9f3c-e130cc8cf984.png)
+2. 	 Add a new Admin
+3. 	 Login as Admin
+![image](https://user-images.githubusercontent.com/43038291/51078597-3193be80-167d-11e9-98ad-689d772c0e3c.png)
+4. 	 Add a new Store Owners
+5. 	 Login as Store Owner
+6. 	 Add a new Store Front
+![image](https://user-images.githubusercontent.com/43038291/51078688-132ec280-167f-11e9-81fe-5a57d7c9fbed.png)
+7. 	 Login as Admin
+8. 	 Approve pending Store Fronts
+![image](https://user-images.githubusercontent.com/43038291/51078677-d5ca3500-167e-11e9-88e5-a673be773755.png) 
+9. 	 Login as Store Owner 
+![image](https://user-images.githubusercontent.com/43038291/51078644-59375680-167e-11e9-8133-8f8e33defc6c.png)
+![image](https://user-images.githubusercontent.com/43038291/51078647-5d637400-167e-11e9-84c9-99f69acb79b3.png)
+10.	 Add new Products
+11.	 Update an existing Product
+12.	 Remove an Product
+13.	 Login as Shopper
+![image](https://user-images.githubusercontent.com/43038291/51078656-85eb6e00-167e-11e9-8064-24c5ed59c52e.png)
+14.	 Browse all Store Fronts
+![image](https://user-images.githubusercontent.com/43038291/51078663-9e5b8880-167e-11e9-83cb-6a07876bfc82.png)
+15.	 Buy a Product
+16.	 Login as Store Owner 
+![image](https://user-images.githubusercontent.com/43038291/51078667-a61b2d00-167e-11e9-851c-c1800fd39238.png)
+17.	 Withdraw collected amount
+18.    Login as Owner
+19.    Stop Market Place in case of emergency 
+![image](https://user-images.githubusercontent.com/43038291/51078675-cba83680-167e-11e9-9716-1ba0c03a7fbe.png)
+
+
+
 
 ### Requirements
    -      User Interface Requirements:
