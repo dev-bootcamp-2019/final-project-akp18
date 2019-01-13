@@ -65,9 +65,9 @@ https://github.com/dev-bootcamp-2019/final-project-akp18/edit/master/README.md
     $ npm install -g truffle
     ```
 
-2. Download the box. This also takes care of installing the necessary dependencies.
+2. Make sure you have ganache-cli running on port 8545
     ```javascript
-    $ truffle unbox react-auth
+    $ ganache-cli
     ```
 
 3. Run the development console.
