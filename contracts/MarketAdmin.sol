@@ -19,7 +19,7 @@ contract Ownable {
     /** @dev Transfers ownership to another address
       * @param newOwner Address of the new owner.
       */
-    function transferOwnership(address newOwner) onlyOwner {
+    function transferOwnership(address newOwner) public onlyOwner {
         if (newOwner != address(0)) {
             owner = newOwner;
         }
@@ -29,6 +29,7 @@ contract Ownable {
 /** @title Stoppable contract. Inherits from Ownable */
 contract Stoppable is Ownable
 {
+    /** flag that holds status of market state */
     bool stopMarket;
 
     /** @dev Event to notify about market status change   */
@@ -51,7 +52,7 @@ contract Stoppable is Ownable
     }
 
     /** @dev Returns current state of market   */
-     function getMarketState() public returns(bool){
+     function getMarketState() public view returns(bool){
         return stopMarket;
     }
 
@@ -97,10 +98,10 @@ contract MarketAdmin is Stoppable {
     }
   
     /** @dev MODIFIER that checks if the msg.sender is an admin */
-    modifier onlyAdmin () { require (approvedAdmins[msg.sender]); _;}
+    modifier onlyAdmin () { require (approvedAdmins[msg.sender],"You are not market admin"); _;}
 
     /** @dev MODIFIER that checks if the msg.sender is an admin */
-    modifier onlyStoreOwner () { require (approvedStoreOwners[msg.sender]); _;}
+    modifier onlyStoreOwner () { require (approvedStoreOwners[msg.sender], "You are not store owner"); _;}
    
     /** @dev Event to notify about new admin   */
     event adminAdded(address _admin);
@@ -110,7 +111,7 @@ contract MarketAdmin is Stoppable {
   
     /** @dev Market owner can add other admins for the marketplace*/
     function addAdmin(address _admin) onlyOwner() checkMarketStatus public {
-        require(approvedAdmins[_admin] == false);
+        require(approvedAdmins[_admin] == false, "Admin already exists");
         approvedAdmins[_admin] = true; 
         admins.push(_admin);
         emit adminAdded(_admin);
@@ -120,7 +121,7 @@ contract MarketAdmin is Stoppable {
       * @param _storeowner Address of the new owner.
       */
     function addStoreOwner(address _storeowner) onlyAdmin() checkMarketStatus public {
-    require(approvedStoreOwners[_storeowner] == false);
+    require(approvedStoreOwners[_storeowner] == false, "Store owner already exists");
         approvedStoreOwners[_storeowner] = true; 
         storeowners.push(_storeowner);
         emit storeownerAdded(_storeowner);
