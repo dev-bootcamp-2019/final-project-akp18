@@ -47,7 +47,7 @@ Shoppers can visit stores and purchase goods that are in stock using cryptocurre
   
 ### Getting Started
 1. Download or clone the repository
-https://github.com/dev-bootcamp-2019/final-project-akp18/edit/master/README.md
+https://github.com/dev-bootcamp-2019/final-project-akp18.git
 
 2. CD into the project and install the dependencies:
    ```javascript
