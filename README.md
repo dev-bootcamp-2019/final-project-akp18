@@ -99,10 +99,10 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 
  ### Process Flow
 
-1.  Login as Market Owner
+1.  Login as Market Owner.This will be the default address that was used to deploy the contract.
 ![image](https://user-images.githubusercontent.com/43038291/51078582-dd88da00-167c-11e9-9f3c-e130cc8cf984.png)
-2. 	 Add a new Admin
-3. 	 Login as Admin
+2. 	 Add a new Admin. Enter the address of market admin and click Add.
+3. 	 Login as Admin. Switch account using MetaMask plugin.
 ![image](https://user-images.githubusercontent.com/43038291/51078597-3193be80-167d-11e9-98ad-689d772c0e3c.png)
 4. 	 Add a new Store Owners
 5. 	 Login as Store Owner
