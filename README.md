@@ -95,7 +95,7 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
     // If outside the development console..
     truffle test
     ```
-
+     ![image](https://user-images.githubusercontent.com/43038291/51080213-0f119d80-169d-11e9-8cfb-dbd8878e1d1a.png)
 
  ### Process Flow
 
