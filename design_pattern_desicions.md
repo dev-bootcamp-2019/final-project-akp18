@@ -10,8 +10,8 @@ Ensure that the behavior of a smart contract and its input parameters are as exp
 Restrict the access to contract functionality according to suitable criteria.
 - [x] Access modifiers have been used to restrict the access for Market Front Owner, Admins, Store Owners and Shoppers. 
 For example: 
-- A Store Owner cannot add a new market admin. 
-- Shopper cannot add a new store front.  
+ - A Store Owner cannot add a new market admin. 
+ - Shopper cannot add a new store front.  
 
 #### [Pull over Push ](https://github.com/fravoll/solidity-patterns/blob/master/docs/pull_over_push.md)
 Shift the risk associated with transferring ether to the user. 
