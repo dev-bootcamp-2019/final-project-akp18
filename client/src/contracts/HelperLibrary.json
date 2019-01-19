@@ -732,103 +732,13 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
-    "3": {
+    "1547926925561": {
       "events": {},
       "links": {},
-      "address": "0x3059d5a9960cda8923a4faf0162f7ccb97ee9967",
-      "transactionHash": "0xcb1a6d06166d308bf104a60fc258bc15a3ee3264c8d20ec6fe55baa119d90e53"
-    },
-    "1545800097732": {
-      "events": {},
-      "links": {},
-      "address": "0x305d8a590d4c17006af2b9ad50f0d9d5bc7aae73",
-      "transactionHash": "0x7fce8856bd633bb467ea1088fc4f0815cf48de4e0a514cc48caffcdca4d70a06"
-    },
-    "1546006004473": {
-      "events": {},
-      "links": {},
-      "address": "0x8f9f807216a79781d53959d91c9b0dec281ea020",
-      "transactionHash": "0x55a0a6ad1d8fbd88b495eac1fd2a96491db096ff513baa4b1b6e40b754b55c61"
-    },
-    "1546135596632": {
-      "events": {},
-      "links": {},
-      "address": "0x9f74a1e9973f4af01eb9c96e6cbb0d6fcdeacc26",
-      "transactionHash": "0x623761f9e53a1ab5289a0127b38a3099a8795a8835acafcb54ca412eeea8f0d8"
-    },
-    "1546449436103": {
-      "events": {},
-      "links": {},
-      "address": "0xbce1c63ee6f0eee2834a7cc0cad928ffc42d4e09",
-      "transactionHash": "0xb364685dba88dddcb6fcabcd97afb798fc01a64a377b0404f41a6d3d94dea44c"
-    },
-    "1546484513145": {
-      "events": {},
-      "links": {},
-      "address": "0x6e782c3dc6d4bb908bb837ad942c8ffedc352480",
-      "transactionHash": "0xcd6a5c9756dac4bd1848a1e3b6e06a479b9f558e289d279a8b93efee398a8515"
-    },
-    "1546512771408": {
-      "events": {},
-      "links": {},
-      "address": "0x165200bde8a2f4de7a2b7fa9d8ee1100f911011d",
-      "transactionHash": "0x023f11b09d696669a8c6eb04802f52c90074491892f0805be34149b0a36ed764"
-    },
-    "1546523156400": {
-      "events": {},
-      "links": {},
-      "address": "0x9375d7600edd033cb22502e1b412539aafb2d22b",
-      "transactionHash": "0x76eb639f44810afb34a97ac5ecab8f9c9f2b73ff7c6f3c85209ca4b3e27af273"
-    },
-    "1546524685924": {
-      "events": {},
-      "links": {},
-      "address": "0x810ecb8e1730d1dca50bdf59fc5839cd4e617daf",
-      "transactionHash": "0xf5d41e172d4da7a107f99bdd04fa37e2b05ad2da25f58f042383cc04b691dab4"
-    },
-    "1546733402827": {
-      "events": {},
-      "links": {},
-      "address": "0x0df02d68b4962aa01ae0df2f63b590bc7257bf9f",
-      "transactionHash": "0x44058d0e8c0b984660901fa67aff8cfed4a34579c0b48731aa1aa6c62a989cbd"
-    },
-    "1546745361698": {
-      "events": {},
-      "links": {},
-      "address": "0x19b60a7b3eb872179e1c568111dd6ca3e9c945a7",
-      "transactionHash": "0x94eb8daeb12ea8dc72407a59c014741a88612772392fda64c14a25246b22a00b"
-    },
-    "1547152510821": {
-      "events": {},
-      "links": {},
-      "address": "0x480d396be744ff96470b0318c351b4743283934c",
-      "transactionHash": "0xc9de6fc1b5337b18d94add251b5859049a5388a6434e95fc964f338672e9509a"
-    },
-    "1547153757288": {
-      "events": {},
-      "links": {},
-      "address": "0x4fcefbd866ea64d12473a73fcb5ddf187e8f861e",
-      "transactionHash": "0x3302ddc8331a1a9620d7ba576adbd75aeb0af0da8fd94b43f3516e66dd41e672"
-    },
-    "1547267232746": {
-      "events": {},
-      "links": {},
-      "address": "0x577c3728b570e990786f02ea8f94a966e38fcdc7",
-      "transactionHash": "0x8153b3a02df631e206a6607f17b96f710f59a92c122d3413ac6bbc9acf35d627"
-    },
-    "1547320857191": {
-      "events": {},
-      "links": {},
-      "address": "0xda75c074560763118cb202362dc3d637a51ba28f",
-      "transactionHash": "0x623b7d93069083c3b7eac8b16cb5085cd02b57b705d3fde165a72c2d0dadc0ad"
-    },
-    "1547345633575": {
-      "events": {},
-      "links": {},
-      "address": "0xccda1f7036d320209f02ceec8b37aa3dd87a4bcb",
-      "transactionHash": "0x94c46ca466d9a09887abc83713e1c2fd00d4e702cb79e433737629c2db7a7e60"
+      "address": "0xcbd4f2965ae01688a9e46489055152fb169f4ac3",
+      "transactionHash": "0xb98fddd5b06149171af56fe2faaf617a6b69f66afca0e569d6e5a73a9c8eafe2"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-19T19:32:13.979Z"
+  "updatedAt": "2019-01-19T19:58:33.830Z"
 }
