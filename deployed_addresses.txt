@@ -1,5 +1,5 @@
 
-## ropset testnet deployment
+## ropsen testnet deployment
 
 avani@avani-VirtualBox:~/final-project-akp18$ truffle migrate --network ropsten
 Using network 'ropsten'.
