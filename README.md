@@ -77,7 +77,8 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
     ```
 
 5. Truffle can run tests written in Solidity or JavaScript against your smart contracts. 
-    $ truffle test
+    ```javascript
+      $ truffle test
     ```
      ![image](https://user-images.githubusercontent.com/43038291/51080213-0f119d80-169d-11e9-8cfb-dbd8878e1d1a.png)
 
