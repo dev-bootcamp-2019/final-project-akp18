@@ -144,7 +144,7 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 - [x]      Use a library or extend a contract 
 - [x]      Via EthPM or write your own
 #### Stretch Requirements 
-- [ ] Deploy contract on testnet
+- [x] Deploy contract on testnet
 - [ ] Use Ethereum Name Service
 - [ ] Add functionality that allows store owners to create an auction for an individual item in their store
 - [ ] Give store owners the option to accept any ERC-20 token
@@ -154,4 +154,3 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 - [ ] Use IPFS
 - [ ] Use Oracle 
 
-### Troubleshooting Guide
