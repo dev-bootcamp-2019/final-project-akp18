@@ -3,6 +3,54 @@ var HelperLibrary = artifacts.require("./HelperLibrary.sol");
 var MarketAdmin = artifacts.require("./MarketAdmin.sol");
 var StoreOwner = artifacts.require("./StoreOwner.sol");
 
+/*
+NOTE: The tests have been written for StoreOwner contract. Since this contract inherits(copies all functions and state) from all other contracts and uses libraries, all major functions defined in the base (parent) contracts can be tested by calling this contract.  
+
+The tests follow the main prcess flow of the Market Place application
+	1. Owner should be able to add new admins
+           =======================================
+	   Only the owner of the market place can add admins. This test allows the market owner to add an address of the admin user to the StoreOwner(which inherits 		   from the MarketAdmin contract) so that user with admin acccount can perform necessory steps to setup the marketplace. 	
+	
+	2. Admin should be able to add new store owner
+           ============================================
+	   Only the admin user of the market place can add store oowners. This test allows the admin users to add the address (other than it's own address) of the store 		   owner.  
+
+	3. Store owner should be able to add new store front
+           ==================================================
+           Only the store owner can add new store front to the market place. The newly created store front will not be active until they are approved by the market 		   admin user. The store front will be added with a unique store number(Id).
+
+	4. Admin should be able to approve new store front
+           ================================================
+           Only the admin user can approve a newly created store front. This will emit the storeFrontApproved event and the approval (admin account) will be assigned to 		   the store front. The store owners have to wait for the approval before setting up the store front for the market.
+
+	5. Store owner should be able to add product to approved storefront
+           ================================================================
+	   Store owners should be able to add new products to the approved store front that they created. The new product will include the product name, quantity and    	    price attributes when adding them to a store fornt. This will emit productAdded event and the state of the new product can be varified using this event    		   parameters. A unique product SKU number will be assigned to the product if the operation is successful. 
+
+	6. Store owner should be able to update existing product from approved storefront
+           ================================================================
+	   Store owners should be able to update an existing product from their store front. The product update call should include the product name, quantity and    	       price, product SKU and store front Id attributes. This will emit productUpdated event and the state of the updated product can be varified using this 		   event parameters.  
+
+	7. Store owner should be able to remove existing product from approved storefront
+           ===============================================================================
+	   Store owners should be able to remove an existing product from their store front. The product remove call should include the product SKU and store front 		   Id attributes. This will emit productRemoved event and the state of the removed product can be varified using this event parameters. The product will be 		   marked as removes as opposed to removing that product from the array to save cost of the gas.
+	
+	8. Store owner should be able to add another product to approved storefront
+           =========================================================================
+	   Store owners should be able to add new products to the approved store front that they created. The new product will include the product name, quantity and    	    price attributes when adding them to a store fornt. This will emit productAdded event and the state of the new product can be varified using this event    		   parameters. A unique product SKU number will be assigned to the product if the operation is successful. 
+
+	9. Shopper should be able to purchase product from approved storefront
+           =========================================================================
+	   Shopper can purchase product from any of the approved store fronts. This will emit productPurchased event and the state of the purchased product can be 		   varified using this event parameters. The account of the shopper will be debited for the product that's being purchased. The quantity of the item will be 		   decreased by 1 if the purchase is sucessful.
+
+	10.Store owner should be able to withdraw balance from approved storefront
+           =========================================================================
+	   Only the store owner can collect withdraw amount from their store fronts. The account of the store owner should be credited with the balance amount if this 		   operation is sucessful. This ensures the pull over push payment and is more secure. This emit storeFrontCreated event and the state of the balance variable 		   can be varified using this event parameters.
+
+	11.Owner should be able to stop the market place
+           ==============================================
+	   Only the owner of the market place can stop the market place in case of emergency. None of the above functions can be performed when the market place is in 		   the stopped state. This will emit marketStopped event.
+*/
 contract('StoreOwner', function(accounts) {
 
     const owner = accounts[0]
@@ -15,7 +63,7 @@ contract('StoreOwner', function(accounts) {
 
     const price = web3.toWei(0.00001, "ether")
     
-    it("owner should be able to add new admins", async() => {
+    it("Owner should be able to add new admins", async() => {
        const storeOwner = await StoreOwner.deployed()
 
         var eventEmitted = false
@@ -34,7 +82,7 @@ contract('StoreOwner', function(accounts) {
         assert.equal(eventEmitted, true, 'adding a market admin should emit a Admin Added event')
     }) 
 
-    it("admin should be able to add new store owner", async() => {
+    it("Admin should be able to add new store owner", async() => {
        const storeOwner = await StoreOwner.deployed()
 
         var eventEmitted = false
@@ -55,7 +103,7 @@ contract('StoreOwner', function(accounts) {
         assert.equal(eventEmitted, true, 'adding a store owner should emit a Store Owner Added event')
     })
 
-    it("store owner should be able to add new store front", async() => {
+    it("Store owner should be able to add new store front", async() => {
        const storeOwner = await StoreOwner.deployed()
 	
        //const result2 = await marketAdmin.getUserType({from: bob}) //get storefront count
@@ -279,7 +327,7 @@ contract('StoreOwner', function(accounts) {
         
     })
 
-  it("owner should be able to stop the market place", async() => {
+  it("Owner should be able to stop the market place", async() => {
        const storeOwner = await StoreOwner.deployed()
 
         var eventEmitted = false
