@@ -57,6 +57,8 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 	run ganache-cli (save your mnemonic to be able to get the same setup later)
 	ganache will generate 10 addresses, write them down (including private keys)
 	private network will be accessable at localhost:8545
+	
+4. Make sure you have the [react-script](https://www.npmjs.com/package/react-scripts ) installed.
 
 ### Installation
 
