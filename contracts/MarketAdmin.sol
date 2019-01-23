@@ -85,7 +85,7 @@ contract MarketAdmin is Stoppable {
      *      2 for Store_Owner, 
      *      3 for Shopper
     */
-    function getUserType() public pure returns(UserType)
+    function getUserType() public constant returns(UserType)
     {
         if(msg.sender == owner)
             return UserType.Market_Owner;
