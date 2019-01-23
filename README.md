@@ -53,7 +53,7 @@ Shoppers can visit stores and purchase goods that are in stock using cryptocurre
 	
 2. Make sure you have the [react-script](https://www.npmjs.com/package/react-scripts ) installed.
 
-3. Make sure you have Truffle v4.1.14 installed.
+3. Make sure you have Truffle v4.1.15 installed.
 
 4. Make sure you have [MetaMask](https://metamask.io/) installed.
 
