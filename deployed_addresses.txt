@@ -1,31 +1,6 @@
 
 ## ropsen testnet deployment
-
-avani@avani-VirtualBox:~/final-project-akp18$ truffle migrate --network ropsten
-Using network 'ropsten'.
-
-Running migration: 2_deploy_contracts.js
-  Deploying SafeMath...
-  ... 0x971679b5ad680a78eb2c948bf62635d2e1d3e3d003c97179ee218b29d7946eba
-  SafeMath: 0xf779c6268d567a806be62a462f2ff32ecce4b294
-
-  Deploying HelperLibrary...
-  ... 0xcb1a6d06166d308bf104a60fc258bc15a3ee3264c8d20ec6fe55baa119d90e53
-  HelperLibrary: 0x3059d5a9960cda8923a4faf0162f7ccb97ee9967
-
-  Linking HelperLibrary to StoreOwner
-
-  Deploying MarketAdmin...
-  ... 0xb0b84f89fc9bf2b4806f3d49145ec7a359712d4f90d5c359efbf31e20baebec4
-  MarketAdmin: 0x0d12008e0f95e42286c18c7815b463203a923c45
-
-  Deploying StoreOwner...
-  ... 0xf6db7140b21592d1d2cb0cfe9565f8eb79f50f9c2c51fb89ae15b7d91422b642
-  StoreOwner: 0x8d8cdf69134bbc5bbca1fcadb2bd27a98b800912
-
-Saving successful migration to network...
-  ... 0x178bce4233bae6ac8009e8e0dc434aef5f8148496414d51e9f55f43166be8126
-Saving artifacts...
+StoreOwner Contract Address: 0xe884f32B6d25e0154bDF12F6fC4A3991e055B5c3
 
 Check the contract on ropsen network
-https://ropsten.etherscan.io/address/0x8d8cdf69134bbc5bbca1fcadb2bd27a98b800912
+https://ropsten.etherscan.io/address/0xe884f32b6d25e0154bdf12f6fc4a3991e055b5c3#code
