@@ -1,7 +1,9 @@
 # final-project-akp18 - Online Marketplace on Blockchain
 
 ## Description: Create an online marketplace that operates on the blockchain.
- 
+
+[![Build Status](https://travis-ci.org/dev-bootcamp-2019/final-project-akp18.svg?branch=master)](https://travis-ci.org/dev-bootcamp-2019/final-project-akp18)
+
 ### Overview  
 There are a list of stores on a central marketplace where shoppers can purchase goods posted by the store owners.
 
