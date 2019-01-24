@@ -94,32 +94,32 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 
 1.  Login as Market Owner.This will be the default address that was used to deploy the contract.
 ![image](https://user-images.githubusercontent.com/43038291/51078582-dd88da00-167c-11e9-9f3c-e130cc8cf984.png)
-2. 	 Add a new Admin. Enter the address of market admin and click Add.
+2. 	 Add a new Admin address. Enter the address of market admin and click Add.
 3. 	 Login as Admin. Switch account using MetaMask plugin.
 ![image](https://user-images.githubusercontent.com/43038291/51078597-3193be80-167d-11e9-98ad-689d772c0e3c.png)
-4. 	 Add a new Store Owners
-5. 	 Login as Store Owner
-6. 	 Add a new Store Front
+4. 	 Add a new Store Owner to the market place.
+5. 	 Switch account (using MetaMask) again and now login as Store Owner
+6. 	 Add a new Store Front by enteering the name of the store.
 ![image](https://user-images.githubusercontent.com/43038291/51078688-132ec280-167f-11e9-81fe-5a57d7c9fbed.png)
-7. 	 Login as Admin
-8. 	 Approve pending Store Fronts
+7. 	 Switch account (using MetaMask) again and login as Admin
+8. 	 Approve pending Store Fronts by entering the store number (e.g. 0, 1, 2..).
 ![image](https://user-images.githubusercontent.com/43038291/51078677-d5ca3500-167e-11e9-88e5-a673be773755.png) 
-9. 	 Login as Store Owner 
+9. 	 Switch account (using MetaMask) again and login as Store Owner 
 ![image](https://user-images.githubusercontent.com/43038291/51078644-59375680-167e-11e9-8133-8f8e33defc6c.png)
 ![image](https://user-images.githubusercontent.com/43038291/51078647-5d637400-167e-11e9-84c9-99f69acb79b3.png)
-10.	 Add new Products
-11.	 Update an existing Product
-12.	 Remove an existing Product
-13.	 Login as Shopper
+10.	 Add new Products. Please note that you can only manage store fronts that have been approved by market admin.
+11.	 Update an existing Product.
+12.	 Remove an existing Product.
+13.	 Switch account (using MetaMask) again and login as Shopper
 ![image](https://user-images.githubusercontent.com/43038291/51078656-85eb6e00-167e-11e9-8064-24c5ed59c52e.png)
-14.	 Browse all Store Fronts
+14.	 Browse different Store Fronts. You will have to click on the Load Products button once you select a store front from the Approved Store Front drop-down menu.
 ![image](https://user-images.githubusercontent.com/43038291/51078663-9e5b8880-167e-11e9-83cb-6a07876bfc82.png)
-15.	 Buy a Product
-16.	 Login as Store Owner 
+15.	 Buy a Product by selecting the SKU of the product that you want to buy.
+16.	 Switch account (using MetaMask) again and login as Store Owner. 
 ![image](https://user-images.githubusercontent.com/43038291/51078667-a61b2d00-167e-11e9-851c-c1800fd39238.png)
-17.	 Withdraw collected amount
-18.    Login as Owner
-19.    Stop Market Place in case of emergency 
+17.      Withdraw collected amount. Refresh the page to see the updated balance in the page header.
+18.      Switch account (using MetaMask) again. Login as Owner.
+19.      Stop Market Place in case of emergency 
 ![image](https://user-images.githubusercontent.com/43038291/51078675-cba83680-167e-11e9-9716-1ba0c03a7fbe.png)
 
 
@@ -146,13 +146,12 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 - [x]      Use a library or extend a contract 
 - [x]      Via EthPM or write your own
 #### Stretch Requirements 
-- [x] Deploy contract on testnet
-- [ ] Use Ethereum Name Service
+- [x] Deploy contract on testnet - Ropsen
+- [x] Test contracts with travis CI
 - [ ] Add functionality that allows store owners to create an auction for an individual item in their store
 - [ ] Give store owners the option to accept any ERC-20 token
 - [ ] Implement an upgradable design pattern
 - [ ] Write a smart contract in LLL or Vyper
-- [ ] Use uPort
-- [ ] Use IPFS
-- [ ] Use Oracle 
+- [ ] Use Ethereum Name Service, uPort, IPFS, Oracle
+
 
