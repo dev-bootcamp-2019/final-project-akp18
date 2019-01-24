@@ -119,7 +119,7 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 ![image](https://user-images.githubusercontent.com/43038291/51078667-a61b2d00-167e-11e9-851c-c1800fd39238.png)
 17.    Withdraw collected amount. Refresh the page to see the updated balance in the page header.
 18.    Switch account (using MetaMask) again. Login as Owner.
-19.    Stop Market Place in case of emergency. You will no longer be able to any operations (read only) in the market place. 
+19.    Stop Market Place in case of emergency. You will no longer be able to perform any operations (read only) in the market place. Refresh the page to see the updated market place status in the page header. 
 ![image](https://user-images.githubusercontent.com/43038291/51078675-cba83680-167e-11e9-9716-1ba0c03a7fbe.png)
 
 
