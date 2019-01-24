@@ -152,6 +152,8 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 - [ ] Give store owners the option to accept any ERC-20 token
 - [ ] Implement an upgradable design pattern
 - [ ] Write a smart contract in LLL or Vyper
-- [ ] Use Ethereum Name Service, uPort, IPFS, Oracle
-
-
+- [ ] Use Ethereum Name Service, uPort,  Oracle
+- [x] Host website on **_IPFS_** 
+[http://127.0.0.1:8080/ipfs/QmZtjoGDNZorV7V4tFuDnnKVZHTMuSbof9KjkiRpwcCFyW/](http://127.0.0.1:8080/ipfs/QmZtjoGDNZorV7V4tFuDnnKVZHTMuSbof9KjkiRpwcCFyW/)
+[https://ipfs.io/ipfs/QmZtjoGDNZorV7V4tFuDnnKVZHTMuSbof9KjkiRpwcCFyW/](https://ipfs.io/ipfs/QmZtjoGDNZorV7V4tFuDnnKVZHTMuSbof9KjkiRpwcCFyW/)
+	![image](https://user-images.githubusercontent.com/43038291/51691312-28c9b380-1fc0-11e9-995f-1b320c50501d.png)
