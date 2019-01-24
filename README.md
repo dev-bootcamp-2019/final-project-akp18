@@ -92,19 +92,19 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 
  ### Process Flow
 
-1.  Login as Market Owner.This will be the default address that was used to deploy the contract.
+1.  Login as Market Owner. This will be the default address that was used to deploy the contract.
 ![image](https://user-images.githubusercontent.com/43038291/51078582-dd88da00-167c-11e9-9f3c-e130cc8cf984.png)
 2. 	 Add a new Admin address. Enter the address of market admin and click Add.
 3. 	 Login as Admin. Switch account using MetaMask plugin.
 ![image](https://user-images.githubusercontent.com/43038291/51078597-3193be80-167d-11e9-98ad-689d772c0e3c.png)
 4. 	 Add a new Store Owner to the market place.
 5. 	 Switch account (using MetaMask) again and now login as Store Owner
-6. 	 Add a new Store Front by enteering the name of the store.
+6. 	 Add a new Store Front by entering the name of the store.
 ![image](https://user-images.githubusercontent.com/43038291/51078688-132ec280-167f-11e9-81fe-5a57d7c9fbed.png)
-7. 	 Switch account (using MetaMask) again and login as Admin
+7. 	 Switch account (using MetaMask) again and login as Admin.
 8. 	 Approve pending Store Fronts by entering the store number (e.g. 0, 1, 2..).
 ![image](https://user-images.githubusercontent.com/43038291/51078677-d5ca3500-167e-11e9-88e5-a673be773755.png) 
-9. 	 Switch account (using MetaMask) again and login as Store Owner 
+9. 	 Switch account (using MetaMask) again and login as Store Owner. 
 ![image](https://user-images.githubusercontent.com/43038291/51078644-59375680-167e-11e9-8133-8f8e33defc6c.png)
 ![image](https://user-images.githubusercontent.com/43038291/51078647-5d637400-167e-11e9-84c9-99f69acb79b3.png)
 10.	 Add new Products. Please note that you can only manage store fronts that have been approved by market admin.
@@ -117,9 +117,9 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 15.	 Buy a Product by selecting the SKU of the product that you want to buy.
 16.	 Switch account (using MetaMask) again and login as Store Owner. 
 ![image](https://user-images.githubusercontent.com/43038291/51078667-a61b2d00-167e-11e9-851c-c1800fd39238.png)
-17.      Withdraw collected amount. Refresh the page to see the updated balance in the page header.
-18.      Switch account (using MetaMask) again. Login as Owner.
-19.      Stop Market Place in case of emergency 
+17.    Withdraw collected amount. Refresh the page to see the updated balance in the page header.
+18.    Switch account (using MetaMask) again. Login as Owner.
+19.    Stop Market Place in case of emergency. You will no longer be able to any operations (read only) in the market place. 
 ![image](https://user-images.githubusercontent.com/43038291/51078675-cba83680-167e-11e9-9716-1ba0c03a7fbe.png)
 
 
