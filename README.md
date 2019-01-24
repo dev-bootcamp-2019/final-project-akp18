@@ -112,7 +112,7 @@ https://github.com/dev-bootcamp-2019/final-project-akp18.git
 12.	 Remove an existing Product.
 13.	 Switch account (using MetaMask) again and login as Shopper
 ![image](https://user-images.githubusercontent.com/43038291/51078656-85eb6e00-167e-11e9-8064-24c5ed59c52e.png)
-14.	 Browse different Store Fronts. You will have to click on the Load Products button once you select a store front from the Approved Store Front drop-down menu.
+14.	 Browse different Store Fronts. You will have to click on the Browse Products button once you select a store front from the store front drop-down menu.
 ![image](https://user-images.githubusercontent.com/43038291/51078663-9e5b8880-167e-11e9-83cb-6a07876bfc82.png)
 15.	 Buy a Product by selecting the SKU of the product that you want to buy.
 16.	 Switch account (using MetaMask) again and login as Store Owner. 
